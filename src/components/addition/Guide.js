@@ -39,8 +39,6 @@ function Guide({ handleCheckButton }) {
     }
   };
 
-  console.log(answer)
-
   return (
     <div className={`guide-con ${showGuide ? "active" : "inactive"}`}>
       <div className="left-con">
@@ -109,6 +107,7 @@ function Guide({ handleCheckButton }) {
         <p className="step">{steps[stepNumber]}</p>
 
         <div className="nav">
+          {stepNumber === steps.length && <p>Correct!</p>}
           <button onClick={handlePrev} disabled={stepNumber === 0}>
             back
           </button>

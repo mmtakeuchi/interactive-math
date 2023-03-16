@@ -4,7 +4,7 @@
 	font-family: sans-serif;
 	text-align: center;
 	max-width: 920px;
-	max-height: 520px;
+	max-height: 560px;
 	border: solid #444 1px;
 }
 
@@ -12,7 +12,7 @@
 	display: flex;
 	justify-content: space-between;
 	border: solid 1px;
-	min-height: 50px;
+	height: 40px;
 	padding: 1% 2%;
 }
 
@@ -30,14 +30,17 @@ button:not(:disabled) {
 
 .number {
 	font-family: "Martian Mono", monospace;
-}
-
-.num1,
-.num2 {
 	font-size: 2rem;
 	margin: 0%;
 	color: #333;
 }
+
+// .num1,
+// .num2 {
+// 	font-size: 2rem;
+// 	margin: 0%;
+// 	color: #333;
+// }
 
 
 .step-wrapper{
@@ -50,7 +53,7 @@ button:not(:disabled) {
 	position: relative;
 	overflow: hidden;
 	// overflow-y: auto;
-	height: 390px;
+	height: 400px;
 
 	.problem-con{
 		display: flex;
