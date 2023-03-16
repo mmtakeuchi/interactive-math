@@ -34,10 +34,12 @@ function Guide({ handleCheckButton }) {
   }, [activeDigit1, activeDigit2]);
 
   const handleKeyDownAnswer = (e) => {
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && answer) {
       handleCheckButton();
     }
   };
+
+  console.log(answer)
 
   return (
     <div className={`guide-con ${showGuide ? "active" : "inactive"}`}>
@@ -47,7 +49,6 @@ function Guide({ handleCheckButton }) {
 
           <div className="digits-con">
             {carryArr.map((d, i) => {
-              console.log(slicedArr, carryArr)
                 return (
                 <span
                 // className={`number carry-con num-${d} ${(sliceStart - 1 + i === activeDigitIndex && d !== 0) ? 'fade-in' : ''} ${sliceStart - 1 + i === activeDigitIndex ? 'active' : 'inactive'}`}

@@ -24,6 +24,10 @@
 	border-top: 1px solid;
 }
 
+button:not(:disabled) {
+	cursor: pointer;
+}
+
 .number {
 	font-family: "Martian Mono", monospace;
 }

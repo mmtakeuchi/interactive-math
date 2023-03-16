@@ -70,7 +70,7 @@ function AdditionSolver() {
       <div className="Footer">
         <button
           onClick={() => handleCheckButton()}
-          disabled={stepNumber === steps.length ? true : false}
+          disabled={stepNumber === steps.length || !answer ? true : false}
         >
           CHECK
         </button>

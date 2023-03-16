@@ -39,6 +39,8 @@ export const AdditionSolverProvider = ({ children }) => {
     let tempAnswers = [];
     let tempCarryArr = [0];
 
+    let remainder = 0;
+
     // Convert numbers to strings and pad with leading zeros if necessary
     const string1 = number1.toString().padStart(3, "0");
     const string2 = number2.toString().padStart(3, "0");
@@ -49,16 +51,26 @@ export const AdditionSolverProvider = ({ children }) => {
       let sum = parseInt(string1[i]) + parseInt(string2[i]) + carry;
       tempAnswers.push(sum);
       // Check if a carry is generated
+
       if (sum >= 10) {
         carry = 1;
+        remainder = 1;
         sum -= 10;
       } else {
         carry = 0;
+        remainder = 0;
       }
 
-      tempSteps.push(
-        `Add ${string1[i]} and ${string2[i]} with a carry of ${carry}.`
-      );
+      if (carry === 1 || remainder === 1) {
+        tempSteps.push(`Add ${string1[i]} and ${string2[i]} with the carry of ${carry}`)
+      } else if (i === 0) {
+        tempSteps.push(`Add ${string1[i]} and ${string2[i]}`)
+      } else {
+        tempSteps.push(
+          // `Add ${string1[i]} and ${string2[i]} with a carry of ${carry}.`
+          `Add ${string1[i]} and ${string2[i]} and carry ${carry} over.`
+        );
+      }
       tempCarryArr.push(carry); // carry to be displayed above digits
 
       // Add the current digit to the result and steps
@@ -67,7 +79,7 @@ export const AdditionSolverProvider = ({ children }) => {
     // If there is a carry left after adding all digits, add it to the result and steps
     if (carry > 0) {
       tempResult = carry.toString() + tempResult;
-      tempSteps.push(`Add a carry of ${carry} to the leftmost digit.`);
+      // tempSteps.push(`Add a carry of ${carry} to the leftmost digit.`);
       tempAnswers.push(carry);
     }
 
