@@ -39,7 +39,7 @@ function Guide({ handleCheckButton }) {
     }
   };
 
-  console.log(sliceStart, activeDigitIndex)
+  console.log('test', sliceStart % activeDigitIndex)
   return (
     <div className={`guide-con ${showGuide ? "active" : "inactive"}`}>
       <div className="left-con">
@@ -47,14 +47,18 @@ function Guide({ handleCheckButton }) {
           <span className="operator add">+</span>
 
           <div className="digits-con">
-            {slicedArr.map((d, i) => (
+            {carryArr.map((d, i) => {
+                console.log('active', i, activeDigitIndex)
+                console.log('slice', carryArr.length - 1 - i)
+                return (
                 <span
-                className={`number carry-con num-${d} ${(sliceStart - 1 + i === activeDigitIndex && d !== 0) ? 'fade-in' : ''} ${sliceStart - 1 + i === activeDigitIndex ? 'carry-animation active' : 'inactive'}`}
+                // className={`number carry-con num-${d} ${(sliceStart - 1 + i === activeDigitIndex && d !== 0) ? 'fade-in' : ''} ${sliceStart - 1 + i === activeDigitIndex ? 'active' : 'inactive'}`}
+                className={`number carry-con num-${d} ${(i - carryArr.length) === activeDigitIndex ? 'active fade-in' : 'inactive'} ${Math.abs(activeDigitIndex) <= carryArr.length - 1 - i ? 'hidden' : ''}`}
                 key={i}
               >
                 {d}
               </span>
-            ))}
+            )})}
 
             <div className="number num1">
               {splitNum1.map((digit, i) => (

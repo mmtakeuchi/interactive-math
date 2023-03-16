@@ -167,30 +167,26 @@
                 &.fade-in {
                     animation: 2s fadeIn;
                     -webkit-animation: 2s fadeIn;
-                    animation-delay: 0s;
                     
                   @keyframes fadeIn {
                     0% {
-                        transform: translateY(-10px);
                         opacity: 0;
                     }
                     100% {
-                        transform: translateY(0);
                         opacity: 1;
                     }
                   }
                   
                   @-webkit-keyframes fadeIn {
                     0% {
-                        transform: translateY(-10px);
                         opacity: 0;
                     }
                     100% {
-                        transform: translateY(0);
                         opacity: 1;
                     }
                   }
                 }
+
                 &.carry-animation {
                     transition: top 3s ease;
 
@@ -215,7 +211,10 @@
                 }
 				&.num-0{
 					color: transparent;
-				}				
+				}
+                &.hidden {
+                    visibility: hidden;
+                }				
 			}
         }
 
